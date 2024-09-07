@@ -2414,10 +2414,10 @@ RectTransform:
   - {fileID: 785175565}
   m_Father: {fileID: 1302019836}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 414, y: -80}
-  m_SizeDelta: {x: 332, y: 160}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &211248561
 GameObject:
@@ -2594,7 +2594,7 @@ MonoBehaviour:
   PrependedText: 
   AppendedText: 
   _ttsService: {fileID: 1944441572}
-  presetVoiceID: WIT$CHARLIE
+  presetVoiceID: WIT$REBECCA
   customWitVoiceSettings:
     SettingsId: 
     PrependedText: 
@@ -2798,7 +2798,7 @@ MonoBehaviour:
   responseText: {fileID: 1021343030}
   selectedCharacter: 0
   selectedEnvironment: 5
-  selectedVoice: 7
+  selectedVoice: 20
 --- !u!82 &219485086
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5904,10 +5904,10 @@ RectTransform:
   - {fileID: 731234150}
   m_Father: {fileID: 1302019836}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 124, y: -80}
-  m_SizeDelta: {x: 248, y: 160}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &461491818
 GameObject:
@@ -10584,10 +10584,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 211248560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 166, y: -80}
-  m_SizeDelta: {x: 332, y: 160}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &785175566
 MonoBehaviour:
@@ -12790,10 +12790,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 731234150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 120, y: -72}
-  m_SizeDelta: {x: 240, y: 144}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1021343030
 MonoBehaviour:
@@ -15015,10 +15015,10 @@ RectTransform:
   - {fileID: 107809236}
   m_Father: {fileID: 1302019836}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 690, y: -80}
-  m_SizeDelta: {x: 220, y: 160}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1318620690
 GameObject:
@@ -21212,6 +21212,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 5635686428748895619}
+  onAButtonPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9077545349598452155}
+        m_TargetAssemblyTypeName: AnimatorOverrideLayerWeigth, Oculus.Interaction.Samples
+        m_MethodName: SetOverrideLayerActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onAButtonReleased:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1967858873
 Transform:
   m_ObjectHideFlags: 0
@@ -23356,7 +23374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2127443528
 MonoBehaviour:
   m_ObjectHideFlags: 0
