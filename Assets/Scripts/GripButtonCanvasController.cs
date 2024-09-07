@@ -5,11 +5,11 @@ using TMPro;
 
 public class GripButtonCanvasController : MonoBehaviour
 {
-    public GameObject canvasObject; // Assign your canvas object in the inspector
+    public GameObject canvasPrefab; // Assign your canvas prefab in the inspector
     private List<InputDevice> devices = new List<InputDevice>();
     private bool isGripPressed = false;
     public Transform controllerTransform; // Assign the controller's transform in the inspector
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI textToCopy;
 
     void Update()
     {
@@ -27,8 +27,7 @@ public class GripButtonCanvasController : MonoBehaviour
                 if (gripPressed && !isGripPressed)
                 {
                     isGripPressed = true; // Grip is currently being pressed
-                    PositionCanvas();
-                    canvasObject.SetActive(true);
+                    InstantiateAndPositionCanvas();
                 }
                 else if (!gripPressed)
                 {
@@ -38,18 +37,21 @@ public class GripButtonCanvasController : MonoBehaviour
         }
     }
 
-    private void PositionCanvas()
+    private void InstantiateAndPositionCanvas()
     {
         if (controllerTransform != null)
         {
-            canvasObject.transform.position = controllerTransform.position + controllerTransform.forward * 0.5f; // Adjust 0.5f to position it further or closer as needed
-            canvasObject.transform.rotation = Quaternion.LookRotation(controllerTransform.forward);
+            // Instantiate a new canvas object
+            GameObject newCanvas = Instantiate(canvasPrefab, controllerTransform.position + controllerTransform.forward * 0.5f, Quaternion.LookRotation(controllerTransform.forward));
+            newCanvas.SetActive(true);
+            TextMeshProUGUI tmp = newCanvas.GetComponentInChildren<TextMeshProUGUI>();
+            if (tmp != null)
+                tmp.text = textToCopy.text;  // Set the text dynamically
+            tmp.enableWordWrapping = true;
         }
-        PopulateCanvasWithText();
-    }
-
-    void PopulateCanvasWithText()
-    {
-        canvasObject.GetComponentInChildren<TextMeshProUGUI>().text = text.text;
+        else
+        {
+            Debug.LogError("Controller transform is null");
+        }
     }
 }
