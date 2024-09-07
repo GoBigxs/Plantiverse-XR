@@ -53,6 +53,8 @@ public class GptCanvasManager : MonoBehaviour
     void ToggleVisibility()
     {
         isVisible = !isVisible;
-        canvas.SetActive(isVisible);
+        //canvas.SetActive(isVisible);
+        if (!isVisible) canvas.transform.position = new Vector3(canvas.transform.position.x, canvas.transform.position.y + 500, canvas.transform.position.z);
+        else canvas.transform.position = new Vector3(canvas.transform.position.x, canvas.transform.position.y - 500, canvas.transform.position.z);
     }
 }
