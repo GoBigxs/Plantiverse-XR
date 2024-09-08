@@ -16,6 +16,7 @@ public class GptCanvasManager : MonoBehaviour
     private bool aButtonPressed = false; // Tracking the state of the A button
     private float cooldown = 1.0f; // Cooldown period in seconds
     private float lastToggleTime = 0; // Time since last toggle
+    private float lastToggleTime2 = 0; // Time since last toggle
 
     public SliderController sliderController;
 
@@ -36,11 +37,12 @@ public class GptCanvasManager : MonoBehaviour
 
         if (leftHandController.TryGetFeatureValue(CommonUsages.secondaryButton, out bool bPressed2) && bPressed2)
         {
-            if (Time.time > lastToggleTime + cooldown)
+            if (Time.time > lastToggleTime2 + cooldown)
             {
                 sliderCanvas22.SetActive(!sliderCanvas22.activeSelf);
-                Debug.Log("Slider!!!!!!!!!!!!!!!!!!");
+                //Debug.Log("Slider!!!!!!!!!!!!!!!!!!");
                 sliderController.isFilling = true;
+                lastToggleTime2 = Time.time;
             }
         }
 
