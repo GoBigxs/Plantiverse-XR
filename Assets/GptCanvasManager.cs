@@ -8,6 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class GptCanvasManager : MonoBehaviour
 {
     public GameObject canvas; // Assign the canvas object in the inspector
+    public GameObject sliderCanvas22;
     public UnityEvent onAButtonPressed;  // Assign actions in the editor for button press
     public UnityEvent onAButtonReleased; // Assign actions in the editor for button release
 
@@ -16,9 +17,12 @@ public class GptCanvasManager : MonoBehaviour
     private float cooldown = 1.0f; // Cooldown period in seconds
     private float lastToggleTime = 0; // Time since last toggle
 
+    public SliderController sliderController;
+
     void Update()
     {
         InputDevice rightHandController = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+        InputDevice leftHandController = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
 
         // Toggle Canvas with B button
         if (rightHandController.TryGetFeatureValue(CommonUsages.secondaryButton, out bool bPressed) && bPressed)
@@ -27,6 +31,16 @@ public class GptCanvasManager : MonoBehaviour
             {
                 ToggleVisibility();
                 lastToggleTime = Time.time; // Reset the last toggle time
+            }
+        }
+
+        if (leftHandController.TryGetFeatureValue(CommonUsages.secondaryButton, out bool bPressed2) && bPressed2)
+        {
+            if (Time.time > lastToggleTime + cooldown)
+            {
+                sliderCanvas22.SetActive(!sliderCanvas22.activeSelf);
+                Debug.Log("Slider!!!!!!!!!!!!!!!!!!");
+                sliderController.isFilling = true;
             }
         }
 
@@ -53,8 +67,6 @@ public class GptCanvasManager : MonoBehaviour
     void ToggleVisibility()
     {
         isVisible = !isVisible;
-        //canvas.SetActive(isVisible);
-        if (!isVisible) canvas.transform.position = new Vector3(canvas.transform.position.x, canvas.transform.position.y + 500, canvas.transform.position.z);
-        else canvas.transform.position = new Vector3(canvas.transform.position.x, canvas.transform.position.y - 500, canvas.transform.position.z);
+        canvas.SetActive(isVisible);
     }
 }
